@@ -1,6 +1,9 @@
-这个笔记是在看慕课网上的《Spring MVC起步》教程时所做的记录。
+学习慕课网《Spring MVC起步》教程的笔记。
+本篇文档记录简单的MVC概念，流程。还有Maven的介绍最后用一个简单的例子说明了MVC和Maven。
 
-this s ????
+
+----------
+
 目录
 ====
 [TOC]
@@ -51,13 +54,13 @@ Model-->DispatcherServlet:
 DispatcherServlet->View:
 View-->DispatcherServlet:
 ```
-**HandlerAdapter：**这是在DispatcherServlet内部使用的类，DispatcherServlet用过使用HandlerAdapter来调用具体的Controller。
-**HandlerInterceptor：**拦截器，拦截的是调用Controller的请求。同时可以实现在调用Controller之前和之后添加自己的方法。
-**HandlerMapping：**前端控制器和Controller之间的映射关系。DispatcherServlet通过HandlerMapping来寻找具体处理的Controller。
-**HandlerExecutionChain：**链的执行是利用Java中的**反射机制**实现的。
-**ModelAndView：** Model的具体表现形式。
-**ViewResolver：**视图解析器。
-**View：**呈现的页面。
++ **HandlerAdapter：**这是在DispatcherServlet内部使用的类，DispatcherServlet用过使用HandlerAdapter来调用具体的Controller。
++ **HandlerInterceptor：**拦截器，拦截的是调用Controller的请求。同时可以实现在调用Controller之前和之后添加自己的方法。
++ **HandlerMapping：**前端控制器和Controller之间的映射关系。DispatcherServlet通过HandlerMapping来寻找具体处理的Controller。
++ **HandlerExecutionChain：**链的执行是利用Java中的**反射机制**实现的。
++ **ModelAndView：** Model的具体表现形式。
++ **ViewResolver：**视图解析器。
++ **View：**呈现的页面。
 
 <br/>
 ## 2-2 动态概念
