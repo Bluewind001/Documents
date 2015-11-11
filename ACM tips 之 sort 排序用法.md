@@ -1,5 +1,5 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在ACM解题过程中，经常碰到排序问题，刚接触的人可能会自己去写排序，不仅是为了熟悉算法的思想，也是为了练习写代码的能力。但熟悉了之后就不需要在自己写了，调用c++的库就好了。接下来进入正题。介绍几个简单的方法。
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章知识粗率的提了一下排序函数的调用，还有很多其他的内容，如：稳定排序。希望看完之后可以自己扩展阅读。我在最后贴了一个链接。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章知识简单的提了一下排序函数的调用，还有很多其他的内容，如：稳定排序。希望看完之后可以自己扩展阅读。我在最后贴了一个链接。后续我会继续更新。
 
 ##数组排序：
 <pre name="code" class="cpp">
@@ -18,7 +18,7 @@
 	//结果 8 12 23 30 32 44 52 54 56 94
 </pre>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sort函数的头文件，必须要` #include<algorithm> `，第一个参数是要排序数组的开头，第二个参数是最后一个数字的下一个位置。如果数组的下标从一开始的话就是：`sort(a+1,a+1+len)`而排序的结果是按照从小到大排序的。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sort函数的头文件，必须要` #include<algorithm> `，第一个参数是要排序数组的开头，第二个参数是最后一个数字的下一个位置。如果数组的下标从1开始的话就是：`sort(a+1,a+1+len)`而排序的结果是按照从小到大排序的。
 
 如果要想从大到小排序，需要自己写排序的函数，作为sort函数的第三个参数传进去，
 <pre name="code" class="cpp">
