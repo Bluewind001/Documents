@@ -42,7 +42,7 @@ public interface DoSomething
     public void print(String name);
 }
 ```
-其中@author 和@see都是常用的注释 第一个表示作者，第二个表示参考的连接。
+其中@author 和@see都是常用的注释第一个表示作者，第二个表示参考的连接。
 
 __方法注释__
 方法注释要紧靠方法的前面，你可以在其中使用@param @return @throws等标签。例如
@@ -79,13 +79,6 @@ __字段注释__
 @exception|对方法的说明|对方法可能抛出的异常进行说明|@exception 异常类名 说明|@exception java.lang.Exception throw when switch is 1
 @throws：异常||同exceptioin
 
-TODO：
-Created on：
- 
-
-
-
-
- 
-
-> Written with [StackEdit](https://stackedit.io/).
+还有一种就是：
+TODO：//Created on：
+这类的注释我只了解到这一个。
