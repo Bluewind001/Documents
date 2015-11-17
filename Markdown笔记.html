@@ -1,0 +1,461 @@
+<dl>
+<dt><strong>Marddown 简介：</strong></dt>
+<dd>Markdown 的宗旨是实现“易读易写”。一份Markdown文件是以纯文本的形式发布的，可以使普通文本具有一定的格式。Markdown语法由一些符号组成，而且这些符号简单易懂。</dd>
+</dl>
+
+<p><strong>特点：</strong> <br>
+Markdown 和 HTML 不同但类似。HTML是一种发布的格式，Markdown是一种书写的格式。Markdown是想让文档更容易读、写和改。它兼容HTML标签，不在Markdown涵盖范围之内的标签都可以直接用HTML语法来实现，也就是说Markdown文件中可以方便的嵌套HTML标签。但是在HTML <strong>区块标签</strong> 内使用Markdown的语法是无效的，但是在HTML <strong>区段标签</strong> 内是有效的。比如我的blog就是用Markdown，其中的代码显示部分使用的HTML标签「并没有用Markdown本身的显示代码的语法，主要是显示的太丑了」。在Markdown中插入HTML便签，有的需要在其前后加上空行与其他内容分开，有的则不需要，建议都加上空行也方便显示。同时还要求开始标签和结束标签不能用制表符或空格来缩进。</p>
+
+<p><strong>Tip</strong>：还有一种和Markdow类似的叫reStructuredText，适合写比较大的文档，还能转换成其他格式。</p>
+
+<p><strong>一些特殊字符：</strong>如<code>'&lt;'和'&amp;'</code>字符如果想显示他们的原型就要写成<code>&amp;lt;和&amp;amp;</code>，还有支持版权字符比如你想显示 © 写<code>&amp;copy;</code>就可以了。 <br>
+<br> <br>
+有些语法在网站上发布显示不出正确的效果，使用的时候请注意，如果只是自己作为文档查看没用问题。</p>
+
+<hr>
+
+
+
+<h3 id="markdown的语法"><strong>Markdown的语法：</strong></h3>
+
+<p><strong>Markdown段落：</strong> <br>
+前后要有一个以上的空行，且普通的段落不能用制表符或空格来缩进，其中的换行可以用<code>&lt;br /&gt;</code>来实现。 <br>
+<br></p>
+
+<p><strong>Markdown标题：</strong> <br>
+在行首插入1到6个<code>#</code>就对应1到6阶标题，如：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs vala"><span class="hljs-preprocessor">#这是一阶标题</span>
+<span class="hljs-preprocessor">##这是二阶标题</span>
+<span class="hljs-preprocessor">######这是六阶标题</span></code></pre>
+
+<p>同样可以在行尾加上<code>#</code>使其闭合，但是行尾的个数无影响，随便几个都可以。 <br>
+<br></p>
+
+<p><strong>区块引用：</strong> <br>
+在文章中插入一段引用在行首加入<code>&gt;</code>，效果如</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ">&gt;这是一个引用段落 </code></pre>
+
+<p>效果：</p>
+
+<blockquote>
+  <p>这是一个引用段落</p>
+</blockquote>
+
+<p>你可以在引用段落的每一行行首都加上<code>&gt;</code>，也可以只加在段落的第一行。 <br>
+引用可以嵌套，只要更具层次加上不同个数的<code>&gt;</code>。 <br>
+在引用块中可以使用Markdown的其他语法，包括标题，列表等：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs bash">&gt; <span class="hljs-comment">#这是一个一级标题</span></code></pre>
+
+<p>如果引用段落结束，需要在最后多加一个空行，表示引用的结束。 <br>
+<br></p>
+
+<p><strong>列表：</strong> <br>
+支持有序列表和无序列表。</p>
+
+<p>无序列表用<code>* ，  + ， -</code>作为标记：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs diff"><span class="hljs-addition">+ 列表一</span>
+<span class="hljs-addition">+ 列表二</span>
+<span class="hljs-addition">+ 列表三</span></code></pre>
+
+<p>效果：</p>
+
+<ul>
+<li>列表一</li>
+<li>列表一</li>
+<li>列表一</li>
+</ul>
+
+<p>换成<code>* 或 -</code> 效果一样。</p>
+
+<p>有序列表：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs markdown"><span class="hljs-bullet">1. </span>1
+<span class="hljs-bullet">2. </span>2
+<span class="hljs-bullet">3. </span>3
+<span class="hljs-bullet">4. </span>4
+<span class="hljs-bullet">8. </span>5</code></pre>
+
+<p>效果：</p>
+
+<ol>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+</ol>
+
+<p>在列表标记上的数字不会影响显示的结果。列表标记的开始前要和前面的内容空一行以上。如果列表之间有空行则会在列表项中加上了<code>&lt;p&gt;</code>标签，</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs markdown"><span class="hljs-bullet">1. </span>1
+
+<span class="hljs-bullet">2. </span>2
+
+<span class="hljs-bullet">3. </span>3
+
+<span class="hljs-bullet">4. </span>4
+
+<span class="hljs-bullet">8. </span>5</code></pre>
+
+<p>效果「间隔会大一点」：</p>
+
+<ol>
+<li><p>1</p></li>
+<li><p>2</p></li>
+<li><p>3</p></li>
+<li><p>4</p></li>
+<li><p>5</p></li>
+</ol>
+
+<p>如果需要在列表里放置多个段落，至少首行需要缩进4 个空格或是 1 个制表符：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs">+ <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> one.
+    <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> two.
+
++ <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1.</span>
+    <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2.</span></code></pre>
+
+<p>效果：</p>
+
+<ul>
+<li><p>this is one. <br>
+this is two.</p></li>
+<li><p>this is 1. <br>
+this is 2.</p></li>
+</ul>
+
+<p>如果要放代码区块的话，该区块就需要空一行且缩进两次「也就是 8 个空格或是 2 个制表符」：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cs">+ <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> one.
+    <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> two.
+
+        <span class="hljs-preprocessor">#include&lt;iostream&gt;</span>
+        <span class="hljs-keyword">using</span> namespace std;
+        <span class="hljs-keyword">int</span> main(){
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
++ <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1.</span>
+    <span class="hljs-keyword">this</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2.</span></code></pre>
+
+<p><br></p>
+
+<p><strong>代码区块：</strong> <br>
+Markdown 会用<code>&lt;pre&gt;</code>和<code>&lt;code&gt;</code>标签来把代码区块包起来。在Markdown建立代码区块只需要简单的缩进就可以，这里要强调的是代码的每一行都要缩进，这个缩进不会显示出来，一个代码区块会一直持续到没有缩进的那一行。代码区块里的特殊符号直接会被转换成本身的意义，如：<code>&amp; &lt; 和 &gt;</code>。</p>
+
+<p>如果想在段落中插一小段代码可以用“ ` ”符号「键盘中1键左面那个，反引号」中间包含的就是代码片段。也可以使用三个反引号单独一行作为代码的开始标记，在次利用三个反引号可以作为结束标记。同时也可以加上是什么语言，中间有一个空格。</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp">    ``` c++
+        <span class="hljs-preprocessor">#include&lt;iostream&gt;</span>
+        <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+        <span class="hljs-keyword">int</span> main(){
+            <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;
+            <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; endl;
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+    ```</code></pre>
+
+<p>效果：</p>
+
+
+
+<pre class="prettyprint"><code class="language-c++ hljs cpp">    <span class="hljs-preprocessor">#include&lt;iostream&gt;</span>
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-keyword">int</span> main(){
+        <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; a &lt;&lt; endl;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }</code></pre>
+
+<p><br></p>
+
+<p><strong>链接：</strong> <br>
+链接方式有两种。 <br>
+一种是用“[]”扩起来链接文字接着在后面的小括号里面写上网址链接，如果想加上链接的 title 的话，在网址后面用双引号把title引起来就可以了。 <br>
+如：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs markdown">This is an example [<span class="hljs-link_label">link</span>](<span class="hljs-link_url">http://example.com/ "title"</span>).</code></pre>
+
+<p>效果： This is an example <a href="http://example.com/" title="title">link</a>.</p>
+
+<p>另一种是在链接文字后面在加一个方括号，在第二个方括号中要填上标识链接的id，链接辨别标签可以有字母、数字、空白和标点符号，但是并<strong>不区分大小写</strong>。同时可以在两个中括号之间加上最多一个空格，可以在文件的任意处，把这个标记的链接内容定义出来。 <br>
+如：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs markdown">This is another [<span class="hljs-link_label">link</span>][<span class="hljs-link_reference">id</span>].
+[<span class="hljs-link_reference">id</span>]:<span class="hljs-link_url"> http://example.com "title"</span></code></pre>
+
+<p>效果：  This is another <a href="http://example.com" title="title">link</a>. <br>
+<br> <br>
+链接内容定义的形式为：</p>
+
+<ul>
+<li>方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字</li>
+<li>接着一个冒号</li>
+<li>接着一个以上的空格或制表符</li>
+<li>接着链接的网址</li>
+<li>选择性地接着 title 内容，可以用单引号、双引号或是括弧包着</li>
+</ul>
+
+<p>Markdown支持隐式链接，就是在id的方括号内不写id，把链接文字当作id：</p>
+
+<pre><code>I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+[google]: http://google.com/        "Google"
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+[msn]:    http://search.msn.com/    "MSN Search"
+</code></pre>
+
+<p><br></p>
+
+<p><strong>强调：</strong> <br>
+被<code>* 或 _</code>包围的字就是强调的文字。一个符号表示斜体，两个符号连用表示加粗。但是注意符号的内测不能是空格。 <br>
+<code>*斜体*</code>  ——&gt;效果：<em>斜体</em>  <br>
+<code>_斜体_</code>   ——–&gt;效果：<em>斜体</em> <br>
+<code>**加粗**</code>   ——–&gt;效果：<strong>加粗</strong> <br>
+<code>__加粗__</code>   ——–&gt;效果：<strong>加粗</strong> <br>
+<br></p>
+
+<p><strong>分割符</strong> <br>
+单独一行<code>---</code>，效果：</p>
+
+<hr>
+
+<p><br></p>
+
+<p><strong>删除线</strong> <br>
+在要划删除线的文本前后添加\~\~，如<code>\~\~看《冰与火之歌》\~\~</code>，效果：<del>看冰与火之歌</del> <br>
+<br></p>
+
+<p><strong>小功能</strong></p>
+
+<ol>
+<li>要想使用缩进，在中文输入法中改成「全角」输入，再按两个空格。</li>
+<li>想要分成两行，需要在行尾输入两个空格。</li>
+<li>标签功能。标签：或者Tags：</li>
+<li>注脚功能，实例：<code>You can create footnotes like this[^footnote].</code><br> <code>[^footnote]: Here is the *text* of the **footnote**.</code></li>
+<li>公式的使用可是访问 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax</a> 参考更多使用方法。</li>
+<li>定义型列表。词的下一行使用<code>：</code>加Tab键。如下：</li>
+</ol>
+
+<dl>
+<dt>定义A</dt>
+<dd>这里是定义</dd>
+</dl>
+
+<p>可以使用图标：<a href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/">http://fortawesome.github.io/Font-Awesome/3.2.1/icons/</a> <br>
+<br></p>
+
+<p><strong>待办事宜 Todo 列表</strong> <br>
+使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：</p>
+
+
+
+<pre class="prettyprint"><code class="language-makedown hljs haml"> -<span class="ruby"> [ ] **<span class="hljs-constant">Cmd</span> <span class="hljs-constant">Markdown</span> 开发**
+</span>        -<span class="ruby"> [ ] 改进 <span class="hljs-constant">Cmd</span> 渲染算法，使用局部渲染技术提高渲染效率
+</span>        -<span class="ruby"> [ ] 支持以 <span class="hljs-constant">PDF</span> 格式导出文稿
+</span>        -<span class="ruby"> [x] 新增<span class="hljs-constant">Todo</span>列表功能 [语法参考](<span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/github.com/blog</span><span class="hljs-regexp">/1375-task-lists-in-gfm-issues-pulls-comments)
+</span></span>        -<span class="ruby"> [x] 改进 <span class="hljs-constant">LaTex</span> 功能
+</span>            -<span class="ruby"> [x] 修复 <span class="hljs-constant">LaTex</span> 公式渲染问题
+</span>            -<span class="ruby"> [x] 新增 <span class="hljs-constant">LaTex</span> 公式编号功能 [语法参考](<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/docs.mathjax.org/en</span><span class="hljs-regexp">/latest/tex</span>.html<span class="hljs-comment">#tex-eq-numbers)</span>
+</span>    -<span class="ruby"> [ ] **七月旅行准备**
+</span>        -<span class="ruby"> [ ] 准备邮轮上需要携带的物品
+</span>        -<span class="ruby"> [ ] 浏览日本免税店的物品
+</span>        -<span class="ruby"> [x] 购买蓝宝石公主号七月一日的船票</span></code></pre>
+
+<p>-[] something1 <br>
+    -[] something 2 <br>
+    -[x] somtthing 3 <br>
+-[x] this is down</p>
+
+<p><br></p>
+
+<p><strong>插入图片：</strong> <br>
+图片的链接和普通的链接很像，就是在普通额链接文字前面加上一个感叹号“ ! ”。也是可以使用两种方法。图片会直接显示到网页中。 <br>
+方法1： <br>
+<code>this is ![picture](http://pic26.nipic.com/20121227/2531170_112836130000_2.jpg "title")</code>   注：此图片来源于网上。</p>
+
+<p>方法2： <br>
+<code>this is ![picture][id] <br>
+[id]: http://pic26.nipic.com/20121227/2531170_112836130000_2.jpg "title2"</code></p>
+
+<p>图片的显示可以用<code>&lt;img&gt;</code>代替。</p>
+
+<p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号： <br>
+\   反斜线 <br>
+`   反引号 <br>
+*   星号 <br>
+_   底线 <br>
+{}  花括号 <br>
+[]  方括号 <br>
+()  括弧 <br>
+#   井字号 <br>
++   加号 <br>
+-   减号 <br>
+.   英文句点 <br>
+!   惊叹号 <br>
+<br></p>
+
+<p>上面摘自：<a href="http://wowubuntu.com/markdown/">http://wowubuntu.com/markdown/</a>   和  <a href="http://www.markdown.cn/">http://www.markdown.cn/</a></p>
+
+<p><br></p>
+
+<hr>
+
+<p>补充内容：序列图和流程图的简单使用。       —— by wy 2015.9.12 <br>
+画简单的序列图：</p>
+
+
+
+<div class="sequence-diagram"><svg height="323" version="1.1" width="423.75" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.25px; top: -0.578125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock55-obj80" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj83" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><path stroke-linecap="round" d="M6,1 1,3.5 6,6" id="raphael-marker-open" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endopen77-obj86" markerHeight="7" markerWidth="7" orient="auto" refX="4" refY="3.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-open" transform="rotate(180 3.5 3.5) scale(1,1)" stroke-width="1.0000" fill="none" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endopen77-obj89" markerHeight="7" markerWidth="7" orient="auto" refX="4" refY="3.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-open" transform="rotate(180 3.5 3.5) scale(1,1)" stroke-width="1.0000" fill="none" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="10" width="84.71875" height="29" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="14.984375" y="15" width="74.71875" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="52.359375" y="24.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Here is title.</tspan></text><rect x="10" y="49" width="131.90625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="59" width="111.90625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="75.953125" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">DispatcherServlet</tspan></text><rect x="10" y="264" width="131.90625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="274" width="111.90625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="75.953125" y="283.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">DispatcherServlet</tspan></text><path fill="none" stroke="#000000" d="M75.953125,88L75.953125,264" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="161.90625" y="49" width="83.59375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="171.890625" y="59" width="63.59375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="203.703125" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Controller</tspan></text><rect x="161.90625" y="264" width="83.59375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="171.890625" y="274" width="63.59375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="203.703125" y="283.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Controller</tspan></text><path fill="none" stroke="#000000" d="M203.703125,88L203.703125,264" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="265.5" y="49" width="58.625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="275.484375" y="59" width="38.625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="294.8125" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Model</tspan></text><rect x="265.5" y="264" width="58.625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="275.484375" y="274" width="38.625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="294.8125" y="283.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Model</tspan></text><path fill="none" stroke="#000000" d="M294.8125,88L294.8125,264" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="344.125" y="49" width="49.625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="354.109375" y="59" width="29.625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="368.9375" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">View</tspan></text><rect x="344.125" y="264" width="49.625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="354.109375" y="274" width="29.625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="368.9375" y="283.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">View</tspan></text><path fill="none" stroke="#000000" d="M368.9375,88L368.9375,264" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="121.296875" y="103.5" width="37.046875" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="139.828125" y="113" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">D to C</tspan></text><path fill="none" stroke="#000000" d="M75.953125,127C75.953125,127,175.07604122161865,127,198.69517360255122,127" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj80)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="121.296875" y="142.5" width="37.046875" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="139.828125" y="152" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">C to D</tspan></text><path fill="none" stroke="#000000" d="M203.703125,166C203.703125,166,104.58020877838135,166,80.96107639744878,166" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj83)" stroke-dasharray="6,2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="165.6875" y="181.5" width="39.375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="185.3828125" y="191" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">D to M</tspan></text><path fill="none" stroke="#000000" d="M75.953125,205C75.953125,205,270.9236486516893,205,292.8197523821036,205" stroke-width="2" marker-end="url(#raphael-marker-endopen77-obj86)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="204.328125" y="220.5" width="36.203125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="222.4453125" y="230" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">D to V</tspan></text><path fill="none" stroke="#000000" d="M75.953125,244C75.953125,244,341.16036476101726,244,366.93001354638955,244" stroke-width="2" marker-end="url(#raphael-marker-endopen77-obj89)" stroke-dasharray="6,2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></div>
+
+<p>上面的代码：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs vhdl">    ```<span class="hljs-keyword">sequence</span>
+    Title: Here <span class="hljs-keyword">is</span> title.
+    #Example <span class="hljs-keyword">of</span> a comment, just a comment, cannt see this.
+    DispatcherServlet-&gt;Controller: D <span class="hljs-keyword">to</span> C
+    Controller<span class="hljs-comment">--&gt;DispatcherServlet: C to D</span>
+    DispatcherServlet-&gt;&gt;Model: D <span class="hljs-keyword">to</span> M
+    DispatcherServlet<span class="hljs-comment">--&gt;&gt;View: D to V</span>
+    ```</code></pre>
+
+<p>注意：语言说明<strong>sequence</strong>是必须的，因为还会有其他的比如flow。可以画<strong>4种不同的箭头</strong>，但是要注意：在画箭头的语句中的<strong><code>-&gt;</code></strong>这部分左右两侧最好不要添加空格，同时语句中的<strong><code>:</code></strong>部分左侧不要有空格，右侧最好有空格「为了美观」。</p>
+
+
+
+<div class="sequence-diagram"><svg height="417" version="1.1" width="287.890625" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.25px; top: -0.78125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><rect x="10" y="10" width="68.8125" height="29" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="14.984375" y="15" width="58.8125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="44.40625" y="24.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">this note.</tspan></text><rect x="37.09375" y="49" width="28.8125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="47.078125" y="59" width="8.8125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="51.5" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">B</tspan></text><rect x="37.09375" y="358" width="28.8125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="47.078125" y="368" width="8.8125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="51.5" y="377.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">B</tspan></text><path fill="none" stroke="#000000" d="M51.5,88L51.5,358" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="110.609375" y="49" width="28.5625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="120.59375" y="59" width="8.5625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="124.890625" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">C</tspan></text><rect x="110.609375" y="358" width="28.5625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="120.59375" y="368" width="8.5625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="124.890625" y="377.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">C</tspan></text><path fill="none" stroke="#000000" d="M124.890625,88L124.890625,358" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="229.734375" y="49" width="28.15625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="239.71875" y="59" width="8.15625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="243.8125" y="68.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">A</tspan></text><rect x="229.734375" y="358" width="28.15625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="239.71875" y="368" width="8.15625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="243.8125" y="377.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">A</tspan></text><path fill="none" stroke="#000000" d="M243.8125,88L243.8125,358" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="151.484375" y="108" width="72.328125" height="47" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="156.46875" y="113" width="62.328125" height="37" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="187.6484375" y="131.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="-3.5">this is left</tspan><tspan dy="18" x="187.6484375" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> note of A.</tspan></text><rect x="10" y="175" width="83" height="29" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="14.984375" y="180" width="73" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="51.5" y="189.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Note over B</tspan></text><rect x="41.5" y="224" width="93.390625" height="47" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="46.484375" y="229" width="83.390625" height="37" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="88.1953125" y="247.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="-3.5">Note over</tspan><tspan dy="18" x="88.1953125" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> both B and C</tspan></text><rect x="144.890625" y="291" width="78.921875" height="47" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="149.875" y="296" width="68.921875" height="37" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="184.3515625" y="314.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="-3.5">this is right</tspan><tspan dy="18" x="184.3515625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"> note of C.</tspan></text></svg></div>
+
+<p>上面例子的代码：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs applescript">    ```sequence
+    Title: this note.
+    participant B
+    participant C
+    participant A
+    Note left <span class="hljs-keyword">of</span> A: this <span class="hljs-keyword">is</span> left\n note <span class="hljs-keyword">of</span> A.
+    Note <span class="hljs-keyword">over</span> B: Note <span class="hljs-keyword">over</span> B
+    Note <span class="hljs-keyword">over</span> B,C: Note <span class="hljs-keyword">over</span>\n both B <span class="hljs-keyword">and</span> C
+    Note right <span class="hljs-keyword">of</span> C: this <span class="hljs-keyword">is</span> right\n note <span class="hljs-keyword">of</span> C.
+    ```</code></pre>
+
+<p>可以通过定义参与者改变它们的顺序。还可以添加一些note，语法如上。 <br>
+详细的例子请查阅：<a href="http://bramp.github.io/js-sequence-diagrams/">http://bramp.github.io/js-sequence-diagrams/</a></p>
+
+<p><strong>流程图：</strong></p>
+
+
+
+<div class="flow-chart"><svg height="512.5546875" version="1.1" width="397.3125" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.78125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock33-obj147" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj148" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj149" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj151" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj153" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj154" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" xlink:show="new" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect x="0" y="0" width="51.03125" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,66.3828,19.9258)"></rect></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" xlink:show="new" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,66.3828,19.9258)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Start</tspan></text></a><rect x="0" y="0" width="104.640625" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="op1" transform="matrix(1,0,0,1,39.5781,128.8516)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="op1t" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,39.5781,128.8516)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">My Operation</tspan></text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path fill="#ffffff" stroke="#000000" d="M35.42578125,17.712890625L0,35.42578125L70.8515625,70.8515625L141.703125,35.42578125L70.8515625,0L0,35.42578125" stroke-width="2" font-family="sans-serif" font-weight="normal" id="cond" class="flowchart" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" transform="matrix(1,0,0,1,21.0469,221.8516)"></path></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><text x="40.42578125" y="35.42578125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="condt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,21.0469,221.8516)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.50390625">Yes or No?</tspan></text></a><path fill="#ffffff" stroke="#000000" d="M10,19.5L0,39L155.796875,39L175.796875,0L20,0L10,19.5" stroke-width="2" font-family="sans-serif" font-weight="normal" id="io" class="flowchart" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" transform="matrix(1,0,0,1,4,362.6289)"></path><text x="30" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="iot" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,4,362.6289)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">catch something...</tspan><tspan dy="18" x="30" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></tspan></text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect x="0" y="0" width="44.421875" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,69.6875,471.5547)"></rect></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,69.6875,471.5547)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">End</tspan></text></a><rect x="0" y="0" width="131.328125" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="sub1" transform="matrix(1,0,0,1,238.9844,237.7773)"></rect><rect x="10" y="0" width="111.328125" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" stroke-width="2" id="sub1i" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,238.9844,237.7773)"></rect><text x="20" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="sub1t" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,238.9844,237.7773)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">My Subroutine</tspan></text><path fill="none" stroke="#000000" d="M91.8984375,58.92578125C91.8984375,58.92578125,91.8984375,112.46270751953125,91.8984375,125.84693908691406" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj147)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M91.8984375,167.8515625C91.8984375,167.8515625,91.8984375,207.50566244125366,91.8984375,218.85200158460066" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj148)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M91.8984375,292.703125C91.8984375,292.703125,91.8984375,346.24005126953125,91.8984375,359.62428283691406" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj149)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><text x="96.8984375" y="302.703125" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">yes</tspan></text><path fill="none" stroke="#000000" d="M162.75,257.27734375C162.75,257.27734375,221.8684763899073,257.27734375,235.98416728573966,257.27734375" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj151)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><text x="167.75" y="247.27734375" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.51171875">no</tspan></text><path fill="none" stroke="#000000" d="M91.8984375,401.62890625C91.8984375,401.62890625,91.8984375,455.16583251953125,91.8984375,468.55006408691406" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj153)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M370.3125,257.27734375C370.3125,257.27734375,395.3125,257.27734375,395.3125,257.27734375C395.3125,257.27734375,395.3125,103.8515625,395.3125,103.8515625C395.3125,103.8515625,91.8984375,103.8515625,91.8984375,103.8515625C91.8984375,103.8515625,91.8984375,119.22500705718994,91.8984375,125.86081027425826" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj154)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<p>基本元素：start,end,operation,subroutine,condition,inputoutput。</p>
+
+<p>可以给每个元素设置链接：语句后面加上 “:&gt;<a href="http://cn.bing.com[blank]">http://cn.bing.com[blank]</a>”  <br>
+可以指定连接线的位置如cond(yes,bottom) cond(yes,right/left)。或者指定其他链接线的位置，sub(right/left/bottom) 不知道上面是什么。</p>
+
+
+
+<div class="flow-chart"><svg height="432.75" version="1.1" width="801.53515625" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: -0.171875px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><marker id="raphael-marker-endblock33-obj172" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj173" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj174" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj176" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj178" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj180" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj182" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj183" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock33-obj184" markerHeight="3" markerWidth="3" orient="auto" refX="1.5" refY="1.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 1.5 1.5) scale(0.6,0.6)" stroke-width="1.6667" fill="black" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" xlink:show="new" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect x="0" y="0" width="51.03125" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="st" transform="matrix(1,0,0,1,66.3828,27.25)"></rect></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" xlink:show="new" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="stt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,66.3828,27.25)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Start</tspan></text></a><rect x="0" y="0" width="104.640625" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="op1" transform="matrix(1,0,0,1,39.5781,143.5)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="op1t" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,39.5781,143.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">My Operation</tspan></text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path fill="#ffffff" stroke="#000000" d="M26.4609375,21.375L0,42.75L52.921875,85.5L105.84375,42.75L52.921875,0L0,42.75" stroke-width="2" font-family="sans-serif" font-weight="normal" id="cond" class="flowchart" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" transform="matrix(1,0,0,1,233.1953,120.25)"></path></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><text x="31.4609375" y="42.75" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="condt" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,233.1953,120.25)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="-3.5">Yes</tspan><tspan dy="18" x="31.4609375" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">or No?</tspan></text></a><path fill="#ffffff" stroke="#000000" d="M35.25,17.625L0,35.25L70.5,70.5L141,35.25L70.5,0L0,35.25" stroke-width="2" font-family="sans-serif" font-weight="normal" id="c2" class="flowchart" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" transform="matrix(1,0,0,1,410.4375,127.75)"></path><text x="40.25" y="35.25" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="c2t" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,410.4375,127.75)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Good idea</tspan></text><path fill="#ffffff" stroke="#000000" d="M10,19.5L0,39L155.796875,39L175.796875,0L20,0L10,19.5" stroke-width="2" font-family="sans-serif" font-weight="normal" id="io" class="flowchart" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" transform="matrix(1,0,0,1,393.0391,275.5)"></path><text x="30" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="iot" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,393.0391,275.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">catch something...</tspan></text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><rect x="0" y="0" width="44.421875" height="39" rx="20" ry="20" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="e" transform="matrix(1,0,0,1,458.7266,391.75)"></rect></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://cn.bing.com" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="et" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,458.7266,391.75)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">End</tspan></text></a><rect x="0" y="0" width="50" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="op2" transform="matrix(1,0,0,1,668.3359,143.5)"></rect><text x="10" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="op2t" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,668.3359,143.5)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">Stuff</tspan></text><rect x="0" y="0" width="131.328125" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" stroke-width="2" class="flowchart" id="sub1" transform="matrix(1,0,0,1,220.4531,283)"></rect><rect x="10" y="0" width="111.328125" height="39" rx="0" ry="0" fill="#ffffff" stroke="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;" stroke-width="2" id="sub1i" font-family="sans-serif" font-weight="normal" transform="matrix(1,0,0,1,220.4531,283)"></rect><text x="20" y="19.5" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" id="sub1t" class="flowchartt" font-weight="normal" transform="matrix(1,0,0,1,220.4531,283)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">My Subroutine</tspan></text><path fill="none" stroke="#000000" d="M91.8984375,66.25C91.8984375,66.25,91.8984375,126.25576764345169,91.8984375,140.4954175822786" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj172)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M144.21875,163C144.21875,163,214.68007289106026,163,230.1967021019334,163" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj173)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M339.0390625,163C339.0390625,163,393.88667263649404,163,407.4378888127958,163" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj174)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><text x="344.0390625" y="153" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">yes</tspan></text><path fill="none" stroke="#000000" d="M286.1171875,205.75C286.1171875,205.75,286.1171875,265.7557676434517,286.1171875,279.9954175822786" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj176)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><text x="291.1171875" y="215.75" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">no</tspan></text><path fill="none" stroke="#000000" d="M480.9375,198.25C480.9375,198.25,480.9375,258.2557676434517,480.9375,272.4954175822786" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj178)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><text x="485.9375" y="208.25" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">yes</tspan></text><path fill="none" stroke="#000000" d="M551.4375,163C551.4375,163,647.0315290391445,163,665.3288236599183,163" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj180)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><text x="556.4375" y="153" text-anchor="start" font-family="sans-serif" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: start; font-family: sans-serif; font-size: 14px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">no</tspan></text><path fill="none" stroke="#000000" d="M480.9375,314.5C480.9375,314.5,480.9375,374.5057676434517,480.9375,388.7454175822786" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj182)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M693.3359375,182.5C693.3359375,182.5,693.3359375,366.75,693.3359375,366.75C693.3359375,366.75,480.9375,366.75,480.9375,366.75C480.9375,366.75,480.9375,382.12344455718994,480.9375,388.75924777425826" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj183)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path><path fill="none" stroke="#000000" d="M220.453125,302.5C220.453125,302.5,156.17578125,302.5,156.17578125,302.5C156.17578125,302.5,156.17578125,167,156.17578125,167C156.17578125,167,164.17578125,163,156.17578125,159C156.17578125,159,156.17578125,118.5,156.17578125,118.5C156.17578125,118.5,91.8984375,118.5,91.8984375,118.5C91.8984375,118.5,91.8984375,133.87344455718994,91.8984375,140.50924777425826" stroke-width="2" marker-end="url(#raphael-marker-endblock33-obj184)" font-family="sans-serif" font-weight="normal" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: sans-serif; font-weight: normal;"></path></svg></div>
+
+<p>可以指定每个元素的状态，使用”|  <br>
+past/future/current/invalid/apporved/rejected”，</p>
+
+<p>流程图：<a href="http://adrai.github.io/flowchart.js/">http://adrai.github.io/flowchart.js/</a></p>
+
+<p><strong>表格语法</strong>： <br>
+基本格式：</p>
+
+<table>
+<thead>
+<tr>
+  <th>one</th>
+  <th>two</th>
+  <th>three</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+</tr>
+</tbody></table>
+
+
+<p>代码：</p>
+
+
+
+<pre class="prettyprint"><code class="language-markdown hljs ">one|two|three
+<span class="hljs-horizontal_rule">---|---|----</span>
+1  |2  |3
+4  |5  |6</code></pre>
+
+<p>每列的宽度是根据内容自动调整的，这里面的是最根本的语法形式。同样可以在每行的左右再加上“ | ” 如：|1 | 2 | 3| ，也是可以的。 <br>
+可以设置每列的对齐方式：</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">左对齐</th>
+  <th align="right">右对齐</th>
+  <th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">这里的内容比较长</td>
+  <td align="right">这内容短可以看出是</td>
+  <td align="center">这里长度正好是居中对齐的</td>
+</tr>
+<tr>
+  <td align="left">可以看出是左对齐的</td>
+  <td align="right">右对齐的</td>
+  <td align="center">注意列名的位置</td>
+</tr>
+</tbody></table>
+
+
+<p>代码：</p>
+
+
+
+<pre class="prettyprint"><code class="language-markdown hljs ">|左对齐 | 右对齐| 居中对齐 |
+|:-------|------:|:---------:|
+|这里的内容比较长| 这内容短可以看出是|这里长度正好是居中对齐的|
+|可以看出是左对齐的|右对齐的|注意列名的位置|</code></pre>
